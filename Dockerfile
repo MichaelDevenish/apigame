@@ -5,6 +5,7 @@ COPY package.json .
 RUN npm install
 RUN npm install flake-idgen
 RUN npm install biguint-format
+RUN npm install fs
 
 COPY . .
 EXPOSE 8080
