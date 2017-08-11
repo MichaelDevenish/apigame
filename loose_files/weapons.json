@@ -1,0 +1,32 @@
+{
+  "weapons" : [
+    {"class": "sword", "name": "knife", "dmg": "1d3", "acc": "3"},
+    {"class": "sword", "name": "dagger", "dmg": "1d4", "acc": "5"},
+    {"class": "sword", "name": "rapier", "dmg": "1d6", "acc": "9"},
+    {"class": "sword", "name": "cutlass", "dmg": "1d6", "acc": "6"},
+    {"class": "sword", "name": "longsword", "dmg": "1d8+1", "acc": "7"},
+    {"class": "sword", "name": "greatsword", "dmg": "1d12+1", "acc": "6"},
+
+    {"class": "axe", "name": "hatchet", "dmg": "1d4", "acc": "3"},
+    {"class": "axe", "name": "sickle", "dmg": "1d4+1", "acc": "5"},
+    {"class": "axe", "name": "war axe", "dmg": "1d8+2", "acc": "6"},
+    {"class": "axe", "name": "great axe", "dmg": "1d12+2", "acc": "4"}
+
+
+  ],
+  "grades" : [
+    {"name" : "rusty", "mod" : "-2"},
+    {"name" : "old", "mod" : "-1"},
+    {"name" : "", "mod" : "0"},
+    {"name" : "fine", "mod" : "1"},
+    {"name" : "superior", "mod" : "2"},
+    {"name" : "legendary", "mod" : "3"},
+  ],
+  "enchantments" : [
+    {"name" : "slashing", "mod": "1", "att": "dmg"},
+    {"name" : "crushing", "mod": "1", "att": "dmg"},
+    {"name" : "sneaking", "mod": "1", "att": "acc"},
+    {"name" : "mystery", "mod": "1", "att": "acc"},
+    {"name" : "conundrums", "mod": "1", "att": "dmg"},
+  ]
+}
