@@ -31,7 +31,7 @@ app.get('/:tagId/:tag1/:tag2', function(req, res) {
         var items = [req.params.tag1,req.params.tag2];
         var json = req.query.json;
         if(json != 'true'){
-            res.render('else',{id: a, contents: items});
+            res.render('else',{id: a});
         }else{
         	var obj = new Object();
 	        obj.APIkey = a;
@@ -47,7 +47,7 @@ app.get('/:tagId/:tag1', function(req, res) {
         var b = [req.params.tag1];
         var json = req.query.json;
         if(json != 'true'){
-            res.render('else',{id: a, contents: b});
+            res.render('else',{id: a});
         }else{
             var obj = new Object();
 	        obj.APIkey = a;
