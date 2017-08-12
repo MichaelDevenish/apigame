@@ -12,6 +12,9 @@ function Player(wep) {
 	this.mdef = 0;
 	this.roomsEntered = 1;
 	this.eWeapon = wep;
+	this.enemies = [];
+	this.currX = 0;
+	this.currY = 0;
 	this.levelUpPlayer = function () {
 		// Randomly increases Str, Dex or Agi, and increases HP by a small amount.
 		var r = Math.floor(Math.random()*3);
