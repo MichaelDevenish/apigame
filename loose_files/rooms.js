@@ -18,10 +18,10 @@ var roomData = {
 		"wide", "armory", "torture", "marble", "dark"
 	],
 	"minorFeature" : [
-		
+		"glow", "drip", "slime", "rock"
 	],
 	"sensory" : [
-		"cold", "dank", "water", "shriek", "hot"
+		"cold", "dank", "water", "shriek", "hot", "echo", "eerie", "ominous"
 	]
 }
 
@@ -60,6 +60,14 @@ function describeOverview(o) {
 
 function describeMinorFeature(f) {
 	switch(f) {
+		case "glow":
+			return " The walls of the room are giving off a faint glow. You find it comforting for some reason.";
+		case "drip":
+			return " A strange liquid is dripping from the roof. You cannot identify the liquid.";
+		case "slime":
+			return " The surfaces of this room are covered in a fine layer of slime. It is sticky to the touch.";
+		case "rock":
+			return " The walls of the room appear to be made of a rough stone, of a type you cannot identify.";
 		default:
 			return "";
 	}
@@ -77,6 +85,12 @@ function describeSensory(s) {
 			return " You hear an incredibly high pitched shrieking noise, but can't quite locate where it came from";
 		case "hot":
 			return " The room is uncomfortably hot, and you start to sweat";
+		case "echo":
+			return " The room seems to echo more than a room of this size should. You feel uneasy";
+		case "eerie":
+			return " The room gives you a an eerie sense of impending doom. You cannot be certain why, but you don't want to stay in this room longer than you must.";
+		case "ominous":
+			return " This room feels wrong and unnatural.";
 		default:
 			return "";
 	}
