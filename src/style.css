@@ -1,0 +1,18 @@
+@charset "UTF-8";
+/* CSS Document */
+body {
+	background: url(DungeonWall.svg);
+	background-size: cover;
+	background-repeat: no-repeat;
+
+}
+
+#wrapper {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.computer {
+	max-height: 650px;
+}
