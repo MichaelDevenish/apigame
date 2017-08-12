@@ -21,7 +21,7 @@ exports.beginGame = function(apiid) {
 	var map = [];
 	// Create first room
 	map.push(rooms.generateRoom(0,0));
-	plyr.currRoom(map[0]);
+	plyr.currRoom = map[0];
 	var enemies = [];
 	
 	var db = new sqlite3.Database('databeets_of_politeness.db');
@@ -50,7 +50,10 @@ exports.movePlayer = function(x, y) {
 // API Call Functions:
 // API Calls should call one of these functions which will just 
 
-exports.apiRoom = function() {
+/*
+ * Displays current room data to the player. 
+ */
+exports.apiRoom = function(apiid) {
 	
 }
 
@@ -74,14 +77,17 @@ exports.apiKillMe = function() {
 }
 
 exports.apiEchoDatabase = function() {
-	var db = new sqlite3.Database('mydb.db');
+	var dat = "";
+	var db = new sqlite3.Database('databeets_of_politeness.db');
 		db.serialize(function() {
 		   db.each("SELECT rowid AS id, key, map, player, enemies FROM user_info", function(err, row) {
-		      console.log(row.id + ": " + row.key + ':' + row.map + ':' + row.player + ':' row.enemies);
+				dat += (row.id + ": " + row.key + ':' + row.map + ':' + row.player + ':' + row.enemies);
+				dat += "\n";
 		  });
 		});
 
 	db.close();
+	return dat;
 }
 
 /*

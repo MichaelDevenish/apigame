@@ -20,7 +20,8 @@ function Player(wep) {
 	this.levelUpPlayer = function () {
 		// Randomly increases Str, Dex or Agi, and increases HP by a small amount.
 		var r = Math.floor(Math.random()*3);
-		switch (r) {
+		for (var i = 0; i < 2; i++) {
+			switch (r) {
 			case 0:
 				this.str++;
 				break;
@@ -30,8 +31,9 @@ function Player(wep) {
 			case 2:
 				this.agi++;
 				break;
+			}
 		}
-		var inchp = Math.floor(Math.random()*3)+3;
+		var inchp = Math.floor(Math.random()*4)+3;
 		this.maxHP += inchp;
 		this.level++;
 	}
@@ -50,7 +52,22 @@ function Player(wep) {
 exports.createPlayer = function () {
 	// Randomly generate a weapon and armour.
 	var wp = weaponz.generateWeapon(0);
-	return new Player(wp);
+	var p = new Player(wp);
+	for (var i = 0; i < 3; i++) {
+		var r = Math.floor(Math.random()*3);
+		switch (r) {
+			case 0:
+				p.str++;
+				break;
+			case 1:
+				p.dex++;
+				break;
+			case 2:
+				p.agi++;
+				break;
+		}
+	}
+	return p;
 }
 
 // Function for total xp to reach tl
@@ -69,13 +86,8 @@ exports.calcDifficulty = function (x, y, n) {
 }
 
 // Test
-var pl = exports.createPlayer();
-console.log(JSON.stringify(pl));
-
-console.log(JSON.stringify(pl));
-pl.gainExp(4);
-console.log(JSON.stringify(pl));
-pl.gainExp(2);
-console.log(JSON.stringify(pl));
-pl.gainExp(22);
-console.log(JSON.stringify(pl));
+console.log(rooms.describeRoom(rooms.generateRoom(0,0)));
+var plyy = exports.createPlayer();
+console.log(JSON.stringify(plyy));
+plyy.gainExp(8);
+console.log(JSON.stringify(plyy));

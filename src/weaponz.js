@@ -4,36 +4,49 @@
 
 var weaponData = {
   "weapons" : [
-    {"class": "sword", "name": "knife", "dmg": "1d3", "acc": 65},
-    {"class": "sword", "name": "dagger", "dmg": "1d4", "acc": 75},
-    {"class": "sword", "name": "rapier", "dmg": "1d6", "acc": 95},
-    {"class": "sword", "name": "cutlass", "dmg": "1d6", "acc": 80},
-    {"class": "sword", "name": "longsword", "dmg": "1d8+1", "acc": 85},
-    {"class": "sword", "name": "greatsword", "dmg": "1d12+1", "acc": 80},
-
-    {"class": "axe", "name": "hatchet", "dmg": "1d4", "acc": 65},
-    {"class": "axe", "name": "sickle", "dmg": "1d4+1", "acc": 75},
-    {"class": "axe", "name": "war axe", "dmg": "1d8+2", "acc": 80},
-    {"class": "axe", "name": "great axe", "dmg": "1d12+2", "acc": 70},
-
-    {"class": "club", "name": "wooden club", "dmg": "1d3", "acc": 50},
-    {"class": "club", "name": "wooden spoon", "dmg": "1d1", "acc": 20},
-    {"class": "club", "name": "beet", "dmg": "1d2", "acc": 25},
-
-    {"class": "misc", "name": "ladle", "dmg": "1d1", "acc": 18},
-    {"class": "misc", "name": "old shoe", "dmg": "1d1", "acc": 13},
-    {"class": "misc", "name": "prosthetic leg", "dmg": "1d2", "acc": 44},
-    {"class": "misc", "name": "enchanted trombone", "dmg": "1d3", "acc": 60},
-
-    {"class": "staff", "name": "quarterstaff", "dmg": "1d4", "acc": 45},
-    {"class": "staff", "name": "battle staff", "dmg": "1d6", "acc": 65},
-    {"class": "staff", "name": "wizard's staff", "dmg": "1d6+1", "acc": 85},
-
-    {"class": "bow", "name": "longbow", "dmg": "1d8", "acc": 90},
-    {"class": "bow", "name": "shortbow", "dmg": "1d4+1", "acc": 95},
-    {"class": "bow", "name": "war bow", "dmg": "1d8+2", "acc": 80},
-    {"class": "bow", "name": "crossbow", "dmg": "1d6+2", "acc": 90}
-    {"class": "bow", "name": "slig", "dmg": "1d5+1", "acc": 85}
+    
+	// Bad blades
+	{"class": "sword", "name": "knife", "dmg": "1d6", "acc": 65},
+    {"class": "sword", "name": "dagger", "dmg": "1d6", "acc": 70},
+	// Good blades
+    {"class": "sword", "name": "rapier", "dmg": "2d6", "acc": 90},
+    {"class": "sword", "name": "cutlass", "dmg": "1d10+1", "acc": 80},
+    {"class": "sword", "name": "longsword", "dmg": "1d10", "acc": 85},
+    {"class": "sword", "name": "greatsword", "dmg": "2d8+1", "acc": 65},
+	// Bad axes
+    {"class": "axe", "name": "hatchet", "dmg": "1d4+1", "acc": 65},
+	// Good axes
+    {"class": "axe", "name": "sickle", "dmg": "1d8+1", "acc": 75},
+    {"class": "axe", "name": "war axe", "dmg": "1d10+2", "acc": 70},
+    // Bad clubs
+    {"class": "club", "name": "wooden club", "dmg": "1d4", "acc": 55},
+    {"class": "club", "name": "wooden spoon", "dmg": "1d3", "acc": 50},
+    // There are no good clubs 
+	// Bad misc:
+    {"class": "misc", "name": "ladle", "dmg": "1d3", "acc": 60},
+    // Staves
+    {"class": "staff", "name": "quarterstaff", "dmg": "2d4+1", "acc": 70},
+    {"class": "staff", "name": "battle staff", "dmg": "2d4+3", "acc": 70},
+	// Bows
+    {"class": "bow", "name": "longbow", "dmg": "3d3+2", "acc": 95},
+    {"class": "bow", "name": "shortbow", "dmg": "3d3+1", "acc": 90},
+    {"class": "bow", "name": "sling", "dmg": "2d3+1", "acc": 80}
+  ],
+  "rareWeapons" : [
+	// Joke rares
+	{"class": "club", "name": "beet", "dmg": "1d3", "acc": 45},
+	{"class": "misc", "name": "prosthetic leg", "dmg": "1d4", "acc": 43},
+    {"class": "misc", "name": "enchanted trombone", "dmg": "1d6", "acc": 60},
+	// Actually decent rares
+	{"class": "staff", "name": "wizard's staff", "dmg": "2d4+4", "acc": 70},
+	{"class": "axe", "name": "great axe", "dmg": "1d20", "acc": 60},
+	{"class": "bow", "name": "war bow", "dmg": "3d3+4", "acc": 90},
+    {"class": "bow", "name": "crossbow", "dmg": "3d4", "acc": 85},
+  ],
+  "mythicalWeapons" : [
+	{"class": "misc", "name": "salted leech", "dmg": "3d6+1", "acc": 80},
+	{"class": "sword", "name": "mr. sword", "dmg": "2d8+3", "acc": 85},
+	{"class": "misc", "name": "a glock or something", "dmg": "2d10+2", "acc": 90},
   ],
   "grades" : [
     {"name" : "rusty ", "mod" : 0},
@@ -52,6 +65,7 @@ var weaponData = {
   	{"name" : "politeness", "mod": -1, "att": "dmg"},
     {"name" : "sneaking", "mod": 10, "att": "acc"},
     {"name" : "mystery", "mod": 5, "att": "acc"},
+	{"name" : "glowyness", "mod": 4, "att": "acc"},
   ],
   "fancyEnchantments" : [
     {"name" : "conundrums", "mod": 1, "att": "dmg"},

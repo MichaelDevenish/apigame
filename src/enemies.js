@@ -74,7 +74,9 @@ var enemyData = {
 	"rat": {"name": "Giant Rat", "maxHPLow": 11, "maxHPHigh": 14, "damageDice": '1d4+1', "hitChance": 90, "dodgeChance": 15, "defence": 1, "attackType": "phys"},
 	"ghost": {"name": "Spoopy Ghost", "maxHPLow": 19, "maxHPHigh": 25, "damageDice": '1d4+2', "hitChance": 90, "dodgeChance": 10, "defence": 1, "attackType": "magi"},
 	"knight": {"name": "Lost Knight", "maxHPLow": 26, "maxHPHigh": 30, "damageDice": '2d4+1', "hitChance": 90, "dodgeChance": 10, "defence": 3, "attackType": "phys"},
-	"dog":{"name": "Dog", "maxHPLow": 17, "maxHPHigh": 22 "damageDice": '1d6+1', "hitChance": 95, "dodgeChance": 12, "defence": 2, "attackType": "phys"}
+	"dog":{"name": "Dog", "maxHPLow": 17, "maxHPHigh": 22 "damageDice": '1d6+1', "hitChance": 95, "dodgeChance": 12, "defence": 2, "attackType": "phys"},
+	"cat":{"name": "Wizarding Cat", "maxHPLow": 17, "maxHPHigh": 22 "damageDice": '1d6+1', "hitChance": 95, "dodgeChance": 12, "defence": 2, "attackType": "phys"}
+
 }
 
 var enemyNames = [
