@@ -60,7 +60,7 @@ function describeOverview(o) {
 		case "garden":
 			return	"The room is filled with plantlife. You are in a garden, but you do not recognise the plants in the room.";
 		case "hall":
-			return	"You are in a hallway, It is long and you can barely make out he exit. This corridor has seen better days";
+			return	"You are in a hallway, It is long and you can barely make out the exit. This corridor has seen better days";
 		case "circle":
 			return	"The room is a grandacious circular auditorium. It looks like it would have been truly marvelous in its prime.";
 		case "library":
