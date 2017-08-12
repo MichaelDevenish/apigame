@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
     var id = intformat(idgen1.next(),'hex');
     game.beginGame(id);
     var contents = fs.readFileSync('src/weaponz.js','utf8');
-    res.render('else',{id: id});
+    return res.render('else',{id: 's'});
 });
 
 app.get('/:tagId', function(req, res) {
@@ -34,16 +34,21 @@ app.get('/:tagId', function(req, res) {
         //output = game.apiHelp(function(vara){
         //    layout(vara, res, json);
         //});
-        var json = req.query.json;
+	console.log(req.params.tagId + 'a');
+	if(req.params.tagId != "favicon.ico"){  
+    	  	var json = req.query.json;
         //what a callback looks like
-        var output = game.apiEchoDatabase(function(vara){
-            layout(vara, res, json);            
-        });  
+        	var output = game.apiEchoDatabase(function(vara){
+            		return layout(vara, res, json);            
+       		});  
+	}
 });
 
 app.get('/:tagId/:tag1/:tag2', function(req, res) {
         //access the main game using ip/apikey?input=value e.g http://13.59.173.76/577469cf19400000/test/a
+	app.use(express.static(__dirname + '/src'));
         var output = null;
+	console.log(req.params.tag2 + 'b');
         switch(req.params.tag1){
             case 'attack':
                 output = game.apiAttack(req.params.tagId,req.params.tag2,function(vara){
@@ -77,6 +82,7 @@ function layout (output, res, json){
 app.get('/:tagId/:tag1', function(req, res) {
                 //access the main game using ip/apikey?input=value e.g http://13.59.173.76/577469cf19400000/test
         var json = req.query.json;
+	console.log(req.params.tag1 + 'c');
         var output = null;
         switch(req.params.tag1){
             case 'killme':

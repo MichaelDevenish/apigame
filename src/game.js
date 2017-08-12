@@ -74,10 +74,11 @@ exports.apiEchoDatabase = function(callback) {
         var db = new sqlite3.Database('mydb.db');
         console.log('test');
         db.serialize(function() {
-           db.each("SELECT key, map, player, enemies FROM user_info", function(err, row) {
+          var output = ""; 
+	  db.each("SELECT key, map, player, enemies FROM user_info ASC LIMIT 1", function(err, row) {
                  callback(row.key + ':' + row.map + ':' + row.player + ':' + row.enemies);
-                 db.close();
            });
+	   db.close();
         });
         //data+= "asfg";
         }
