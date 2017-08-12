@@ -32,8 +32,8 @@ var weaponData = {
     {"class": "bow", "name": "longbow", "dmg": "1d8", "acc": 90},
     {"class": "bow", "name": "shortbow", "dmg": "1d4+1", "acc": 95},
     {"class": "bow", "name": "war bow", "dmg": "1d8+2", "acc": 80},
-    {"class": "bow", "name": "crossbow", "dmg": "1d6+2", "acc": 90}
-    {"class": "bow", "name": "slig", "dmg": "1d5+1", "acc": 85}
+    {"class": "bow", "name": "crossbow", "dmg": "1d6+2", "acc": 90},
+    {"class": "bow", "name": "sling", "dmg": "1d5+1", "acc": 85}
   ],
   "grades" : [
     {"name" : "rusty ", "mod" : 0},

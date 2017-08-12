@@ -49,26 +49,41 @@ exports.movePlayer = function(x, y) {
 // API Call Functions:
 // API Calls should call one of these functions which will just
 
-exports.apiRoom = function() {
+exports.apiRoom = function(key, callback) {
+// rec api key
+//get all for that key
+// get room
+// reutrn room desc, json of player
+
+  var db = new sqlite3.Database('mydb.db');
+  console.log('test');
+
+  db.serialize(function() {
+     var stmt = db.prepare("SELECT key, map, player, enemies FROM user_info where key = ?", function(err, row) {
+           callback(row.key + ':' + row.map + ':' + row.player + ':' + row.enemies);
+           db.close();
+     });
+     stmt.run(key);
+  });
 
 }
 
-exports.apiHelp = function() {
+exports.apiHelp = function(callback) {
 
 }
-exports.apiAttack = function(enemyId) {
-
-}
-
-exports.apiEquip = function(itemId) {
+exports.apiAttack = function(enemyId,callback) {
 
 }
 
-exports.apiGo = function(direction) {
+exports.apiEquip = function(itemId,callback) {
+callback(["equipped", {}])
+}
+
+exports.apiGo = function(direction,callback) {
 
 }
 
-exports.apiKillMe = function() {
+exports.apiKillMe = function(callback) {
 }
 
 exports.apiEchoDatabase = function(callback) {

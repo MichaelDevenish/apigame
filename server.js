@@ -34,9 +34,9 @@ app.get('/:tagId', function(req, res) {
         output = game.apiHelp(req.params.tagId);
         var json = req.query.json;
         //what a callback looks like
-        var output = game.apiEchoDatabase(function(vara){
-            layout(vara, res, json);            
-        });  
+        game.apiEchoDatabase(function(vara){
+            layout(vara, res, json);
+        });
 });
 
 app.get('/:tagId/:tag1/:tag2', function(req, res) {
@@ -44,17 +44,22 @@ app.get('/:tagId/:tag1/:tag2', function(req, res) {
         var output = null;
         switch(req.params.tag1){
             case 'attack':
-                output = game.apiAttack(req.params.tagId,req.params.tag2);
+                game.apiAttack(req.params.tagId,req.params.tag2,function(vara){
+                    layout(vara, res, req.query.json);
+                });
                 break;
             case 'equip':
-                output = game.apiEquip(req.params.tagId,req.params.tag2);
+                game.apiEquip(req.params.tagId,req.params.tag2,function(vara){
+                    layout(vara, res, req.query.json);
+                });
                 break;
             case 'move':
             case 'go':
-                output = game.apiGo(req.params.tagId,req.params.tag2);
+                game.apiGo(req.params.tagId,req.params.tag2,function(vara){
+                    layout(vara, res, req.query.json);
+                });
                 break;
         }
-        layout(output, res, req.query.json);  
 });
 
 function layout (output, res, json){
@@ -72,13 +77,16 @@ app.get('/:tagId/:tag1', function(req, res) {
         var output = null;
         switch(req.params.tag1){
             case 'killme':
-                output = game.apiKillMe(req.params.tagId);
+                game.apiKillMe(req.params.tagId,function(vara){
+                    layout(vara, res, req.query.json);            
+                });
                 break;
             case 'help':
-                output = game.apiHelp(req.params.tagId);
+                game.apiHelp(req.params.tagId,function(vara){
+                    layout(vara, res, req.query.json);
+                });
                 break;
         }
-        layout(output, res, req.query.json);  
 });
 
 app.listen(PORT, HOST);
