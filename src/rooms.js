@@ -18,7 +18,7 @@ function Room (overview, minorFeature, minorFeature2, sensory, roomX, roomY) {
 
 var roomData = {
 	"overview" : [
-		"wide", "armory", "torture", "marble", "dark", "white", "metal", "graveyard", "garden"
+		"wide", "armory", "torture", "marble", "dark", "white", "metal", "graveyard", "garden", "hall", "circle", "library", "tomb", "foyer"
 	],
 	"minorFeature" : [
 		"glow", "drip", "slime", "rock", "needles", "fruit", "music", "blood", "rats"
@@ -59,6 +59,16 @@ function describeOverview(o) {
 			return	"Although the room is very dark, you can make out the shape of gravestones in rows throughout the room. You are in an indoor cemetary.";
 		case "garden":
 			return	"The room is filled with plantlife. You are in a garden, but you do not recognise the plants in the room.";
+		case "hall":
+			return	"You are in a hallway, It is long and you can barely make out he exit. This corridor has seen better days";
+		case "circle":
+			return	"The room is a grandacious circular auditorium. It looks like it would have been truly marvelous in its prime.";
+		case "library":
+			return	"The room's walls are lined with books and scrolls, stacked neatly into shelves. This must be some kind of library or repository.";
+		case "foyer":
+			return	"This room looks like a foyer to a large house, however there are no windows. Where the windows should be has been boarded up with old wooden panels.";
+		case "tomb":
+			return	"This room seems to resemble a tomb. There is a large stone sarcophagus in the middle, but it is sealed tight.";
 		default:
 			return "";
 	}
@@ -115,7 +125,7 @@ function describeSensory(s) {
 		case "hunger":
 			return " This room makes you hungry.";
 		case "sleep":
-			return " This makes you tired.";
+			return " This room makes you tired.";
 		default:
 			return "";
 	}
