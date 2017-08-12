@@ -59,7 +59,7 @@ app.get('/:tagId/:tag1/:tag2', function(req, res) {
 
 function layout (output, res, json){
      if(json != 'true'){
-            res.render('else',{id: output[0]});
+            res.render('else',{id: output});
 
         }else{
                 res.json(output[1]);
