@@ -2,7 +2,7 @@
 /* CSS Document */
 body {
 	width: 100%;
-	background: url(DungeonWall.svg);
+	background: url(Dungeon.svg);
 	background-size: 1500px, 700px;
 	background-repeat: no-repeat;
 
@@ -43,6 +43,8 @@ p {
 	line-height: 20px;
 	
 }
+
+
 
 @media (max-height: 620px) {
 	.text {
