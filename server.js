@@ -21,14 +21,14 @@ app.set('view engine', 'ejs');
 var idgen1 = new FlakeId();
 app.get('/', (req, res) => {
 
-		var db = new sqlite3.Database('mydb.db');
+		var db = new sqlite3.Database('databeets_of_politeness.db');
 		var check;
 		var id = intformat(idgen1.next(),'hex');
 		db.serialize(function() {
 
-		  db.run("CREATE TABLE if not exists user_info (info TEXT)");
-		  var stmt = db.prepare("INSERT INTO user_info VALUES (?)");
-		      stmt.run(id);
+		  db.run("CREATE TABLE if not exists user_info (key TEXT, map TEXT, player TEXT)");
+		  var stmt = db.prepare("INSERT INTO user_info VALUES (?,?,?)");
+		      stmt.run(id,'a','b');
 		  
 		  stmt.finalize();
 		});
@@ -46,8 +46,8 @@ app.get('/:tagId/:tag1/:tag2', function(req, res) {
         var db = new sqlite3.Database('mydb.db');
 		var check;
 		db.serialize(function() {
-		   db.each("SELECT rowid AS id, info FROM user_info", function(err, row) {
-		      console.log(row.id + ": " + row.info);
+		   db.each("SELECT rowid AS id, key, map, player FROM user_info", function(err, row) {
+		      console.log(row.id + ": " + row.key + ':' + row.map + ':' + row.player);
 		  });
 		});
 
@@ -57,7 +57,7 @@ app.get('/:tagId/:tag1/:tag2', function(req, res) {
         var items = [req.params.tag1,req.params.tag2];
         var json = req.query.json;
         if(json != 'true'){
-            res.render('else',{id: a});
+            res.render('else',{id: a, contents: json});
         }else{
                 var obj = new Object();
                 obj.APIkey = a;
@@ -73,7 +73,7 @@ app.get('/:tagId/:tag1', function(req, res) {
         var b = [req.params.tag1];
         var json = req.query.json;
         if(json != 'true'){
-            res.render('else',{id: weaponz.generateWeapon()});
+            res.render('else',{id: weaponz.generateWeapon(), contents: json});
         }else{
             var obj = new Object();
                 obj.APIkey = a;
