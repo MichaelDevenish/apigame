@@ -18,7 +18,7 @@ function Room (overview, minorFeature, minorFeature2, sensory, roomX, roomY) {
 
 var roomData = {
 	"overview" : [
-		"wide", "armory", "torture", "marble", "dark", "white", "metal", "graveyard", "garden", "hall", "circle", "library", "tomb", "foyer"
+		"wide", "armory", "torture", "marble", "dark", "white", "metal", "graveyard", "garden", "hall", "circle", "library", "tomb", "foyer", "qut"
 	],
 	"minorFeature" : [
 		"glow", "drip", "slime", "rock", "needles", "fruit", "music", "blood", "rats"
@@ -69,6 +69,8 @@ function describeOverview(o) {
 			return	"This room looks like a foyer to a large house, however there are no windows. Where the windows should be has been boarded up with old wooden panels.";
 		case "tomb":
 			return	"This room seems to resemble a tomb. There is a large stone sarcophagus in the middle, but it is sealed tight.";
+		case "qut":
+			return	"This room seems familiar. It is Z-block level 4.";
 		default:
 			return "";
 	}
