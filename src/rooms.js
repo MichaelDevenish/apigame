@@ -28,7 +28,7 @@ var roomData = {
 	]
 }
 
-function describeRoom(room) {
+exports.describeRoom = function (room) {
 	var description = describeOverview(room.overview);
 	description += describeMinorFeature(room.minorFeature);
 	description += describeMinorFeature(room.minorFeature2);
@@ -103,7 +103,7 @@ function describeSensory(s) {
 	}
 }
 
-function generateRoom(roomX, roomY) {
+exports.generateRoom = function (roomX, roomY) {
 	// Random overview
 	var ov = roomData.overview[Math.floor(Math.random()*roomData.overview.length)];
 	var sen = null;
