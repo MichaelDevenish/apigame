@@ -26,17 +26,21 @@ app.get('/', (req, res) => {
     var id = intformat(idgen1.next(),'hex');
     game.beginGame(id);
     var contents = fs.readFileSync('src/weaponz.js','utf8');
-    res.render('else',{id: id});
+    res.render('other',{id: id});
 });
 
-app.get('/:tagId', function(req, res) {
+app.get('/:tagId', function(a, res) {
         ///access the main game using ip/apikey?input=value e.g http://13.59.173.76/577469cf19400000/test/a
-        output = game.apiHelp(req.params.tagId);
-        var json = req.query.json;
+        //game.apiHelp(req.params.tagId,function(vara){
+        //    layout(vara, res, req.query.json);
+        //});s
+        var json = a.query.json;
         //what a callback looks like
         game.apiEchoDatabase(function(vara){
             layout(vara, res, json);
+            console.log('test2');
         });
+
 });
 
 app.get('/:tagId/:tag1/:tag2', function(req, res) {
@@ -63,12 +67,15 @@ app.get('/:tagId/:tag1/:tag2', function(req, res) {
 });
 
 function layout (output, res, json){
-     if(json != 'true'){
-            res.render('else',{id: output[0]});
-
-        }else{
-                res.json(output[1]);
-        }
+  res.render('other',{id: output[0]});
+    //  if(json != 'true'){
+    //         res.render('other',{id: output[0]});
+    //         // console.log({id: output[0]});
+     //
+    //     }else{
+    //             res.json(output[1]);
+    //     }
+        console.console.log('testas');
 }
 
 app.get('/:tagId/:tag1', function(req, res) {
@@ -78,7 +85,7 @@ app.get('/:tagId/:tag1', function(req, res) {
         switch(req.params.tag1){
             case 'killme':
                 game.apiKillMe(req.params.tagId,function(vara){
-                    layout(vara, res, req.query.json);            
+                    layout(vara, res, req.query.json);
                 });
                 break;
             case 'help':
