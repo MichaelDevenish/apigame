@@ -14,7 +14,16 @@ var weaponData = {
     {"class": "axe", "name": "hatchet", "dmg": "1d4", "acc": 65},
     {"class": "axe", "name": "sickle", "dmg": "1d4+1", "acc": 75},
     {"class": "axe", "name": "war axe", "dmg": "1d8+2", "acc": 80},
-    {"class": "axe", "name": "great axe", "dmg": "1d12+2", "acc": 70}
+    {"class": "axe", "name": "great axe", "dmg": "1d12+2", "acc": 70},
+
+    {"class": "club", "name": "wooden club", "dmg": "1d3", "acc": 50},
+    {"class": "club", "name": "wooden spoon", "dmg": "1d1", "acc": 20},
+    {"class": "club", "name": "beet", "dmg": "1d2", "acc": 25},
+
+    {"class": "bow", "name": "longbow", "dmg": "1d8", "acc": 90},
+    {"class": "bow", "name": "shortbow", "dmg": "1d4+1", "acc": 95},
+    {"class": "bow", "name": "war bow", "dmg": "1d8+2", "acc": 80},
+    {"class": "bow", "name": "crossbow", "dmg": "1d6+2", "acc": 90}
   ],
   "grades" : [
     {"name" : "rusty ", "mod" : 0},
@@ -27,9 +36,11 @@ var weaponData = {
   "enchantments" : [
     {"name" : "slashing", "mod": 1, "att": "dmg"},
     {"name" : "crushing", "mod": 1, "att": "dmg"},
-    {"name" : "sneaking", "mod": 5, "att": "acc"},
-    {"name" : "mystery", "mod": 3, "att": "acc"},
+    {"name" : "sneaking", "mod": 10, "att": "acc"},
+    {"name" : "mystery", "mod": 5, "att": "acc"},
     {"name" : "conundrums", "mod": 1, "att": "dmg"},
+    {"name" : "clumsiness", "mod": -15, "att": "acc"},
+    {"name" : "precision", "mod": 15, "att": "acc"},
   ]
 }
 
