@@ -1,4 +1,5 @@
 var weaponz = require('./weaponz.js');
+var rooms = require('./rooms.js');
 
 function Player(wep) {
 	this.maxHP = 25;
@@ -70,6 +71,9 @@ exports.calcDifficulty = function (x, y, n) {
 var pl = exports.createPlayer();
 console.log(JSON.stringify(pl));
 
+<<<<<<< HEAD
+// console.log(rooms.describeRoom(rooms.generateRoom(0,0)));
+=======
 console.log(JSON.stringify(pl));
 pl.gainExp(4);
 console.log(JSON.stringify(pl));
@@ -77,3 +81,4 @@ pl.gainExp(2);
 console.log(JSON.stringify(pl));
 pl.gainExp(22);
 console.log(JSON.stringify(pl));
+>>>>>>> 7890fb7f4fa73e8e83e3bbe040fa36972dd871d2
