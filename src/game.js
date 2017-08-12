@@ -15,6 +15,27 @@ exports.enterRoom = function(x, y) {
 }
 
 exports.beginGame = function(apiid) {
+<<<<<<< HEAD
+	// Create the player
+	var plyr = player.createPlayer();
+	// Create the map
+	var map = [];
+	// Create first room
+	map.push(rooms.generateRoom(0,0));
+	plyr.currRoom = map[0];
+	var enemies = [];
+	
+	var db = new sqlite3.Database('databeets_of_politeness.db');
+		db.serialize(function() {
+
+		  db.run("CREATE TABLE if not exists user_info (key TEXT, map TEXT, player TEXT, enemies TEXT)");
+		  var stmt = db.prepare("INSERT INTO user_info VALUES (?,?,?,?)");
+		      stmt.run(apiid,JSON.stringify(map),JSON.stringify(plyr),JSON.stringify(enemies));
+		  stmt.finalize();
+		});
+
+		db.close();
+=======
         // Create the player
         var plyr = player.createPlayer();
         // Create the map
@@ -33,6 +54,7 @@ exports.beginGame = function(apiid) {
         stmt.finalize();
         });
         db.close();
+>>>>>>> 36a34877c8d7e8512d6b8f0e29c926cff73a6e4c
 }
 
 
