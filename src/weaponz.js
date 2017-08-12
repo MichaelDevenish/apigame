@@ -90,7 +90,16 @@ function Weapon(wpnName, dmgDiceSides, dmgDiceNum, dmgMod, acc, isSalty) {
 
 exports.generateWeapon = function (difficulty) {
 	var g;
-	var w = weaponData.weapons[Math.floor(Math.random()*weaponData.weapons.length)];
+	var w;
+	if (Math.random()*100 < ((8+(difficulty*3)))) {
+		if (Math.floor(Math.random()*15) == 0) {
+			w = weaponData.rareWeapons[Math.floor(Math.random()*weaponData.rareWeapons.length)];
+		} else {
+			w = weaponData.mythicalWeapons[Math.floor(Math.random()*weaponData.mythicalWeapons.length)];
+		}
+	} else {
+		w = weaponData.weapons[Math.floor(Math.random()*weaponData.weapons.length)];
+	}
 	var e;
 	switch (difficulty) {
 		case 0:
@@ -102,7 +111,77 @@ exports.generateWeapon = function (difficulty) {
 			g = weaponData.grades[Math.floor(Math.random() * 2)]; // 50/50 Rusty or Old
 			e = weaponData.basicEnchantments[Math.floor(Math.random()*weaponData.basicEnchantments.length)];
 			break;
+		case 2:
+			g = weaponData.grades[Math.floor(Math.random() * 3)]; // Rusty, old or normal
+			if (Math.random() < 0.90) { // 10% chance
+				e = weaponData.basicEnchantments[Math.floor(Math.random()*weaponData.basicEnchantments.length)];
+			} else {
+				e = weaponData.fancyEnchantments[Math.floor(Math.random()*weaponData.fancyEnchantments.length)];
+			}
+			break;
+		case 3:
+			g = weaponData.grades[Math.floor(Math.random() * 5)]; // Rusty - Superior
+			if (Math.random() < 0.85) { // 15% chance
+				e = weaponData.basicEnchantments[Math.floor(Math.random()*weaponData.basicEnchantments.length)];
+			} else {
+				e = weaponData.fancyEnchantments[Math.floor(Math.random()*weaponData.fancyEnchantments.length)];
+			}
+			break;
+		case 4:
+			g = weaponData.grades[Math.floor(Math.random() * 5)]; // Rusty - Superior
+			if (Math.random() < 0.75) { // 25% chance
+				e = weaponData.basicEnchantments[Math.floor(Math.random()*weaponData.basicEnchantments.length)];
+			} else {
+				e = weaponData.fancyEnchantments[Math.floor(Math.random()*weaponData.fancyEnchantments.length)];
+			}
+			break;
+		case 5:
+			g = weaponData.grades[Math.floor(Math.random() * 4)+1]; // old - superior
+			if (Math.random() < 0.72) { // 28% chance
+				e = weaponData.basicEnchantments[Math.floor(Math.random()*weaponData.basicEnchantments.length)];
+			} else {
+				e = weaponData.fancyEnchantments[Math.floor(Math.random()*weaponData.fancyEnchantments.length)];
+			}
+			break;
+		case 6:
+			g = weaponData.grades[Math.floor(Math.random() * 4)+2]; // normal - exceptional
+			if (Math.random() < 0.68) { // 32% chance
+				e = weaponData.basicEnchantments[Math.floor(Math.random()*weaponData.basicEnchantments.length)];
+			} else {
+				e = weaponData.fancyEnchantments[Math.floor(Math.random()*weaponData.fancyEnchantments.length)];
+			}
+			break;
+		case 7:
+			g = weaponData.grades[Math.floor(Math.random() * 5)+2]; // Normal - masterwork
+			if (Math.random() < 0.64) { // 36% chance
+				e = weaponData.basicEnchantments[Math.floor(Math.random()*weaponData.basicEnchantments.length)];
+			} else {
+				e = weaponData.fancyEnchantments[Math.floor(Math.random()*weaponData.fancyEnchantments.length)];
+			}
+			break;
+		case 8:
+			g = weaponData.grades[Math.floor(Math.random() * 6)+2]; // Normal - Legendary
+			if (Math.random() < 0.60) { // 40% chance
+				e = weaponData.basicEnchantments[Math.floor(Math.random()*weaponData.basicEnchantments.length)];
+			} else {
+				e = weaponData.fancyEnchantments[Math.floor(Math.random()*weaponData.fancyEnchantments.length)];
+			}
+			break;
+		case 9:
+			g = weaponData.grades[Math.floor(Math.random() * 5)+3]; // Fine - Legendary
+			if (Math.random() < 0.55) { // 45% chance
+				e = weaponData.basicEnchantments[Math.floor(Math.random()*weaponData.basicEnchantments.length)];
+			} else {
+				e = weaponData.fancyEnchantments[Math.floor(Math.random()*weaponData.fancyEnchantments.length)];
+			}
+			break;
 		case 10:
+			g = weaponData.grades[Math.floor(Math.random() * 5)+4]; // Fine - Memeful
+			if (Math.random() < 0.50) { // 50% chance
+				e = weaponData.basicEnchantments[Math.floor(Math.random()*weaponData.basicEnchantments.length)];
+			} else {
+				e = weaponData.fancyEnchantments[Math.floor(Math.random()*weaponData.fancyEnchantments.length)];
+			}
 			break;
 	}
 

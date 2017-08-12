@@ -52,7 +52,62 @@ function generateEnemyParty(difficulty) {
 			}
 			break;
 		case 2:
-			// Generate some enemies
+			// Generate some enemies, with a chance of a knight, dog, or cat.
+			switch (Math.floor(Math.random()*5)) {
+				case 0:
+					ep.push(createEnemy("goo", usableNames.pop()));
+					if (Math.floor(Math.random()*3) == 0) {
+						ep.push(createEnemy("rat", usableNames.pop()));
+					}
+					break;
+				case 1:
+					ep.push(createEnemy("ghost", usableNames.pop()));
+					if (Math.floor(Math.random()*3) == 0) {
+						ep.push(createEnemy("rat", usableNames.pop()));
+					}
+					break;
+				case 2:
+					ep.push(createEnemy("cat", usableNames.pop()));
+					if (Math.floor(Math.random()*4) == 0) {
+						ep.push(createEnemy("cat", usableNames.pop()));
+					}
+					break;
+				case 3:
+					ep.push(createEnemy("knight", usableNames.pop()));
+					break;
+				case 4:
+					ep.push(createEnemy("dog", usableNames.pop()));
+					break;
+			}
+		case 3:
+			// Generate some enemies, often Knights or Squirrels.
+			switch (Math.floor(Math.random()*5)) {
+				case 0:
+					ep.push(createEnemy("knight", usableNames.pop()));
+					if (Math.floor(Math.random()*2) == 0) {
+						ep.push(createEnemy("goo", usableNames.pop()));
+					}
+					break;
+				case 1:
+					ep.push(createEnemy("ghost", usableNames.pop()));
+					if (Math.floor(Math.random()*2) == 0) {
+						ep.push(createEnemy("ghost", usableNames.pop()));
+					}
+					break;
+				case 2:
+					ep.push(createEnemy("squirrel", usableNames.pop()));
+					if (Math.floor(Math.random()*2) == 0) {
+						ep.push(createEnemy("squirrel", usableNames.pop()));
+					}
+					break;
+				case 3:
+					ep.push(createEnemy("snake", usableNames.pop()));
+					ep.push(createEnemy("snake", usableNames.pop()));
+					break;
+				case 4:
+					ep.push(createEnemy("axemurder", usableNames.pop()));
+					break;
+			}
 		default:
 			// Idk, just return a slime?
 			ep.push(createEnemy("Slime"));

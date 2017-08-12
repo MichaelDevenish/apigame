@@ -87,7 +87,6 @@ exports.calcDifficulty = function (x, y, n) {
 
 // Test
 console.log(rooms.describeRoom(rooms.generateRoom(0,0)));
-var plyy = exports.createPlayer();
-console.log(JSON.stringify(plyy));
-plyy.gainExp(8);
-console.log(JSON.stringify(plyy));
+console.log("\ndiff 1 weapon: " + JSON.stringify(weaponz.generateWeapon(1)));
+console.log("\n diff 4 weapon: " + JSON.stringify(weaponz.generateWeapon(4)));
+console.log("\ndiff 9 weapon: " + JSON.stringify(weaponz.generateWeapon(9)));
