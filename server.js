@@ -1,9 +1,16 @@
 'use strict';
 
-var express = require('express');
-var intformat = require('biguint-format');
-var FlakeId = require('flake-idgen');
-var fs = require('fs');
+var express = require('express'),
+    intformat = require('biguint-format'),
+    FlakeId = require('flake-idgen'),
+    fs = require('fs'),
+    weaponz = require('./src/weaponz.js'),
+    mongoose = require('mongoose'),
+    Game = require('./api/models/model'),
+    bodyParser = require('body-parser');
+
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/Game');
 
 // Constants
 const PORT = 8080;

@@ -17,7 +17,7 @@ module.exports = function(app) {
           var items = [req.params.tag1,req.params.tag2];
           var json = req.query.json;
           if(json != 'true'){
-              res.render('else',{id: a, contents: items});
+              res.render('else',{contents: a});
           }else{
           	var obj = new Object();
   	        obj.APIkey = a;
@@ -33,7 +33,7 @@ module.exports = function(app) {
           var b = [req.params.tag1];
           var json = req.query.json;
           if(json != 'true'){
-              res.render('else',{id: a, contents: b});
+               res.render('else',{contents: JSON.stringify(weaponz.generateWeapon())});
           }else{
               var obj = new Object();
   	        obj.APIkey = a;
@@ -41,4 +41,9 @@ module.exports = function(app) {
   	        res.json(obj);
           }
   });
+
+  // todoList Routes
+  app.route('/test')
+    .get(Game.list_test)
+    .post(Game.save_test);
 }

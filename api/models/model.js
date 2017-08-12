@@ -4,17 +4,7 @@ var Schema = mongoose.Schema;
 
 
 var GameSchema = new Schema({
-  key: {
-    type: String,
-    Required: 'Key required'
-  },
-  player: {
-    type: String,
-    Required: "Player Required"
-  },
-  rooms: {
-    type: String
-  }
+  name: String
 });
 
 module.exports = mongoose.model('Game', GameSchema);

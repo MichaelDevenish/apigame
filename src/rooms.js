@@ -71,6 +71,10 @@ function describeMinorFeature(f) {
 			return " The surfaces of this room are covered in a fine layer of slime. It is sticky to the touch.";
 		case "rock":
 			return " The walls of the room appear to be made of a rough stone, of a type you cannot identify.";
+		case "rats":
+			return "Tiny rats scurry away from you.";
+		case "blood":
+			return "There is a faint trail of blood accross the floor."
 		default:
 			return "";
 	}
@@ -99,7 +103,7 @@ function describeSensory(s) {
 	}
 }
 
-function generateRoom() {
+function generateRoom(roomX, roomY) {
 	// Random overview
 	var ov = roomData.overview[Math.floor(Math.random()*roomData.overview.length)];
 	var sen = null;
@@ -116,7 +120,7 @@ function generateRoom() {
 		// If its the same as first minor feature just remove it:
 		if (mf2 == mf1) mf2 = null;
 	}
-	return new Room(ov, mf1, mf2, sen);
+	return new Room(ov, mf1, mf2, sen, roomX, roomY);
 }
 
 
