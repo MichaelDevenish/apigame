@@ -4,6 +4,7 @@ var express = require('express');
 var intformat = require('biguint-format');
 var FlakeId = require('flake-idgen');
 var fs = require('fs');
+var weaponz = require('./src/weaponz.js')
 
 // Constants
 const PORT = 8080;
@@ -47,7 +48,7 @@ app.get('/:tagId/:tag1', function(req, res) {
         var b = [req.params.tag1];
         var json = req.query.json;
         if(json != 'true'){
-            res.render('else',{id: a});
+             res.render('else',{id: id, contents: JSON.stringify(weaponz.generateWeapon())});
         }else{
             var obj = new Object();
 	        obj.APIkey = a;
