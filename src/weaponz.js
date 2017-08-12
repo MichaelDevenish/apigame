@@ -20,10 +20,20 @@ var weaponData = {
     {"class": "club", "name": "wooden spoon", "dmg": "1d1", "acc": 20},
     {"class": "club", "name": "beet", "dmg": "1d2", "acc": 25},
 
+    {"class": "misc", "name": "ladle", "dmg": "1d1", "acc": 18},
+    {"class": "misc", "name": "old shoe", "dmg": "1d1", "acc": 13},
+    {"class": "misc", "name": "prosthetic leg", "dmg": "1d2", "acc": 44},
+    {"class": "misc", "name": "enchanted trombone", "dmg": "1d3", "acc": 60},
+
+    {"class": "staff", "name": "quarterstaff", "dmg": "1d4", "acc": 45},
+    {"class": "staff", "name": "battle staff", "dmg": "1d6", "acc": 65},
+    {"class": "staff", "name": "wizard's staff", "dmg": "1d6+1", "acc": 85},
+
     {"class": "bow", "name": "longbow", "dmg": "1d8", "acc": 90},
     {"class": "bow", "name": "shortbow", "dmg": "1d4+1", "acc": 95},
     {"class": "bow", "name": "war bow", "dmg": "1d8+2", "acc": 80},
     {"class": "bow", "name": "crossbow", "dmg": "1d6+2", "acc": 90}
+    {"class": "bow", "name": "slig", "dmg": "1d5+1", "acc": 85}
   ],
   "grades" : [
     {"name" : "rusty ", "mod" : 0},
@@ -31,15 +41,15 @@ var weaponData = {
     {"name" : "", "mod" : 2},
     {"name" : "fine ", "mod" : 3},
     {"name" : "superior ", "mod" : 4},
-	{"name" : "exceptional ", "mod" : 5},
-	{"name" : "masterwork ", "mod" : 6},
+  	{"name" : "exceptional ", "mod" : 5},
+  	{"name" : "masterwork ", "mod" : 6},
     {"name" : "legendary ", "mod" : 7},
-	{"name" : "memeful ", "mod" : 8}
+  	{"name" : "memeful ", "mod" : 8}
   ],
   "basicEnchantments" : [
     {"name" : "slashing", "mod": 1, "att": "dmg"},
     {"name" : "crushing", "mod": 1, "att": "dmg"},
-	{"name" : "politeness", "mod": -1, "att": "dmg"},
+  	{"name" : "politeness", "mod": -1, "att": "dmg"},
     {"name" : "sneaking", "mod": 10, "att": "acc"},
     {"name" : "mystery", "mod": 5, "att": "acc"},
   ],
@@ -47,10 +57,11 @@ var weaponData = {
     {"name" : "conundrums", "mod": 1, "att": "dmg"},
     {"name" : "clumsiness", "mod": -15, "att": "acc"},
     {"name" : "precision", "mod": 15, "att": "acc"},
-	{"name" : "sharpness", "mod": 2, "att": "dmg"},
-	{"name" : "rending", "mod": 3, "att": "dmg"},
-	{"name" : "uselessness", "mod": -2, "att": "dmg"},
-	{"name" : "salt", "mod": 0, "att": "dmg"},
+  	{"name" : "sharpness", "mod": 2, "att": "dmg"},
+  	{"name" : "rending", "mod": 3, "att": "dmg"},
+  	{"name" : "uselessness", "mod": -2, "att": "dmg"},
+  	{"name" : "tooting", "mod": -2, "att": "acc"},
+  	{"name" : "salt", "mod": 0, "att": "dmg"},
   ],
 }
 
@@ -80,13 +91,13 @@ exports.generateWeapon = function (difficulty) {
 		case 10:
 			break;
 	}
-	
+
 	var salt = false;
 	// Is salty?
 	if (e.name == "salt") {
 		salt = true;
 	}
-	
+
 	var wname = g.name + w.name + " of " + e.name;
 	// Calculate damage stats
 	var tempd = w.dmg;
