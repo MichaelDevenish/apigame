@@ -1,11 +1,11 @@
 /*
- *	This file allows the generation of rooms and allows saving rooms as objects 
+ *	This file allows the generation of rooms and allows saving rooms as objects
  *	Room objects are kept small to allow easy storage, and are converted to text in code
  *	A room object should probably be stored as a "Stringified" form?
  * 	JSON.stringify(room);
  * 	JSON.parse(roomjson);
  */
- 
+
 function Room (overview, minorFeature, minorFeature2, sensory) {
 	this.overview = overview;
 	this.minorFeature = minorFeature;
@@ -121,3 +121,4 @@ function generateRoom() {
 
 var rm = generateRoom();
 console.log(describeRoom(rm));
+console.log(JSON.stringify(rm));

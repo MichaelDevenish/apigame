@@ -77,7 +77,7 @@ var enemyData = {
 }
 
 var enemyNames = [
-	'James', 'John', 'Rob', 'Mike', 'Will', 'Davo', 'Charlie', 'Joseph', 'Joe', 'Paul', 'Dan', 'Mark', 'Donald', 'Eddy', 'Ron', 'Brian', 'Tony', 'Matt', 'Gazza', 'Timo', 'Steve',
+	'James', 'John', 'Rob', 'Mike', 'Will', 'Davo', 'Charlie', 'Joseph', 'Joe', 'Paul', 'Dan', 'Mark', 'Donald', 'Eddy', 'Ron', 'Brian', 'Tony', 'Matt', 'Gazza', 'Timo', 'Steve'
 	'Eric', 'Ray', 'Andy', 'Pat', 'Juan', 'Jack', 'Frank', 'Scotty',
 	'Mary', 'Linda', 'Barb', 'Liza', 'Jen', 'Maria', 'Susy', 'Lisa', 'Karen', 'Betty', 'Carol', 'Sandra', 'Anna', 'Amy', 'Rebecca', 'Jess', 'Debra', 'Joyce', 'Diane', 'Alice'
 ]
