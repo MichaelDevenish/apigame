@@ -11,10 +11,11 @@ var sqlite3 = require('sqlite3').verbose();
  * If the room doesnt exist, generate a new room, store it, and save the current room in player object.
  */
 exports.enterRoom = function(x, y) {
-	
+
 }
 
 exports.beginGame = function(apiid) {
+<<<<<<< HEAD
 	// Create the player
 	var plyr = player.createPlayer();
 	// Create the map
@@ -34,6 +35,26 @@ exports.beginGame = function(apiid) {
 		});
 
 		db.close();
+=======
+        // Create the player
+        var plyr = player.createPlayer();
+        // Create the map
+        var map = [];
+        // Create first room
+        map.push(rooms.generateRoom(0,0));
+        plyr.currRoom = map[0];
+        var enemies = [];
+        var db = new sqlite3.Database('mydb.db');
+        db.serialize(function(){
+        db.run("CREATE TABLE if not exists user_info (key TEXT, map TEXT, player TEXT, enemies TEXT)");
+         var stmt = db.prepare("INSERT INTO user_info VALUES (?,?,?,?)");
+                      stmt.run(apiid,JSON.stringify(map),JSON.stringify(plyr),JSON.stringify(enemies));
+        console.log('test');
+        console.log(apiid + ':' + apiid,JSON.stringify(map) + JSON.stringify(plyr) + JSON.stringify(enemies));
+        stmt.finalize();
+        });
+        db.close();
+>>>>>>> 36a34877c8d7e8512d6b8f0e29c926cff73a6e4c
 }
 
 
@@ -41,41 +62,43 @@ exports.beginGame = function(apiid) {
  * Updates the players location to a new room, then calls enter room.
  */
 exports.movePlayer = function(x, y) {
-	
+
 }
 
 
 
 
 // API Call Functions:
-// API Calls should call one of these functions which will just 
+// API Calls should call one of these functions which will just
 
+<<<<<<< HEAD
 /*
  * Displays current room data to the player. 
  */
 exports.apiRoom = function(apiid) {
 	
+=======
+exports.apiRoom = function() {
+
+>>>>>>> 36a34877c8d7e8512d6b8f0e29c926cff73a6e4c
 }
 
 exports.apiHelp = function() {
-	
-}
 
+}
 exports.apiAttack = function(enemyId) {
-	
+
 }
 
 exports.apiEquip = function(itemId) {
-	
+
 }
 
 exports.apiGo = function(direction) {
-	
+
 }
 
-exports.apiKillMe = function() {
-}
-
+<<<<<<< HEAD
 exports.apiEchoDatabase = function() {
 	var dat = "";
 	var db = new sqlite3.Database('databeets_of_politeness.db');
@@ -88,16 +111,19 @@ exports.apiEchoDatabase = function() {
 
 	db.close();
 	return dat;
+=======
+exports.apiKillMe = function() {
+>>>>>>> 36a34877c8d7e8512d6b8f0e29c926cff73a6e4c
 }
 
-/*
-var db = new sqlite3.Database('mydb.db');
-		var check;
-		db.serialize(function() {
-		   db.each("SELECT rowid AS id, key, map, player FROM user_info", function(err, row) {
-		      console.log(row.id + ": " + row.key + ':' + row.map + ':' + row.player);
-		  });
-		});
-
-		db.close();
-		*/
+exports.apiEchoDatabase = function(callback) {
+        var db = new sqlite3.Database('mydb.db');
+        console.log('test');
+        db.serialize(function() {
+           db.each("SELECT key, map, player, enemies FROM user_info", function(err, row) {
+                 callback(row.key + ':' + row.map + ':' + row.player + ':' + row.enemies);
+                 db.close();
+           });
+        });
+        //data+= "asfg";
+        }
