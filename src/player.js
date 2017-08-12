@@ -1,4 +1,6 @@
-function Player() {
+var weaponz = require('./weaponz.js');
+
+function Player(wep) {
 	this.level = 1;
 	this.xp = 0;
 	this.str = 0;
@@ -7,23 +9,24 @@ function Player() {
 	this.def = 0;
 	this.mdef = 0;
 	this.roomsEntered = 1;
-	// Generate a weapon and an armour
-	
+	this.eWeapon = wep;
 	function levelUpPlayer() {
-		//
+		
 	}
 }
 
 exports.createPlayer = function () {
 	// Randomly generate a weapon and armour.
+	var wp = weaponz.generateWeapon(0);
+	return new Player(wp);
 }
 
 // Function for total xp to reach tl
-exports.xpForLevel function (tl) {
+exports.xpForLevel = function (tl) {
 	return tl * (tl+1) * (tl+2) / 6;
 }
 
-exports.calcDifficulty function (x, y, n) {
+exports.calcDifficulty = function (x, y, n) {
 	if (x < 0) x = -x;
 	if (y < 0) y = -y;
 	var t = Math.floor(x + y + (n/2));
@@ -34,12 +37,5 @@ exports.calcDifficulty function (x, y, n) {
 }
 
 // Test
-for (var i = 2; i < 10; i++) {
-	console.log("Xp to level " + i + ": " + xpForLevel(i))
-} 
-var p = new Player();
-console.log(JSON.stringify(p));
-console.log("Calculate difficulty for 0,0 (room 1): " + calcDifficulty(0,0,1));
-console.log("Calculate difficulty for 2,2 (Room 5): " + calcDifficulty(2,2,5));
-console.log("Calculate difficulty for 4,3 (Room 8): " + calcDifficulty(4,3,8));
-console.log("Calculate difficulty for 7,10 (Room 21): " + calcDifficulty(7,10,21));
+var pl = exports.createPlayer();
+console.log(JSON.stringify(pl));

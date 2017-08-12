@@ -122,10 +122,3 @@ exports.generateRoom = function (roomX, roomY) {
 	}
 	return new Room(ov, mf1, mf2, sen, roomX, roomY);
 }
-
-
-// Testing
-
-var rm = generateRoom();
-console.log(describeRoom(rm));
-console.log(JSON.stringify(rm));

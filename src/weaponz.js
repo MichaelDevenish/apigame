@@ -68,12 +68,17 @@ exports.generateWeapon = function (difficulty) {
 	var w = weaponData.weapons[Math.floor(Math.random()*weaponData.weapons.length)];
 	var e;
 	switch (difficulty) {
+		case 0:
+			// Always Rusty, always basic enchantment.
+			e = weaponData.basicEnchantments[Math.floor(Math.random()*weaponData.basicEnchantments.length)];
+			g = weaponData.grades[0];
+			break;
 		case 1:
 			g = weaponData.grades[Math.floor(Math.random() * 2)]; // 50/50 Rusty or Old
-			e = weaponData.enchantments[Math.floor(Math.random()*weaponData.enchantments.length)];
+			e = weaponData.basicEnchantments[Math.floor(Math.random()*weaponData.basicEnchantments.length)];
 			break;
 		case 10:
-			g = weaponData.grades[Math.floor(Math.random()*weaponData.]
+			break;
 	}
 	
 	var salt = false;
@@ -116,9 +121,3 @@ exports.rollDamage = function (wpn) {
 	}
 	return damage + wpn.dmgMod;
 }
-
-// Test
-var wep = generateWeapon();
-console.log(wep.wpnName);
-console.log("dmg: " + wep.dmgDiceNum + "d" + wep.dmgDiceSides + "+" + wep.dmgMod + ". acc: " + wep.acc + ".");
-console.log("Damage roll: " + rollDamage(wep));
