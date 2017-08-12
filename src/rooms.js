@@ -5,26 +5,26 @@
  * 	JSON.stringify(room);
  * 	JSON.parse(roomjson);
  */
- 
+
 function Room (overview, minorFeature, minorFeature2, sensory, roomX, roomY) {
 	this.overview = overview;
 	this.minorFeature = minorFeature;
 	this.minorFeature2 = minorFeature2;
 	this.sensory = sensory;
-	this.roomX = roomx;
+	this.roomX = roomX;
 	this.roomY = roomY;
 	this.dir = "NSEW";
 }
 
 var roomData = {
 	"overview" : [
-		"wide", "armory", "torture", "marble", "dark"
+		"wide", "armory", "torture", "marble", "dark", "white", "metal", "graveyard", "garden"
 	],
 	"minorFeature" : [
-		"glow", "drip", "slime", "rock"
+		"glow", "drip", "slime", "rock", "needles", "fruit", "music", "blood", "rats"
 	],
 	"sensory" : [
-		"cold", "dank", "water", "shriek", "hot", "echo", "eerie", "ominous"
+		"cold", "dank", "water", "shriek", "hot", "echo", "eerie", "ominous", "hunger", "sleep"
 	]
 }
 
@@ -51,6 +51,14 @@ function describeOverview(o) {
 					"Everything looks surprisngly well kept, as if someone or something uses this room often.";
 		case "dark":
 			return	"Everything is dim and its hard to see, but you can just make out what seems to be a human corpse sitting in the corner. You hear small bones crunching underneath your feet.";
+		case "white":
+			return	"The room is totally white, although dimly lit. The room has an unfinished feel to it, almost as if whoever designed it was not very creative.";
+		case "metal":
+			return	"The entire room is made of a patchwork of metal and other materials. The floor is rough and rusted.";
+		case "graveyard":
+			return	"Although the room is very dark, you can make out the shape of gravestones in rows throughout the room. You are in an indoor cemetary.";
+		case "garden":
+			return	"The room is filled with plantlife. You are in a garden, but you do not recognise the plants in the room.";
 		default:
 			return "";
 	}
@@ -75,6 +83,12 @@ function describeMinorFeature(f) {
 			return "Tiny rats scurry away from you.";
 		case "blood":
 			return "There is a faint trail of blood accross the floor."
+		case "needles":
+			return "The room is covered in tiny needles, not big enough to hurt you, but unnerving nevertheless."
+		case "fruit":
+			return "The floor is covered in rotten fruit"
+		case "music":
+			return "You can hear a faint music coming from somewhere. The melody reminds you of your childhood, or breakfast."
 		default:
 			return "";
 	}
@@ -98,6 +112,10 @@ function describeSensory(s) {
 			return " The room gives you a an eerie sense of impending doom. You cannot be certain why, but you don't want to stay in this room longer than you must.";
 		case "ominous":
 			return " This room feels wrong and unnatural.";
+		case "hunger":
+			return " This room makes you hungry.";
+		case "sleep":
+			return " This makes you tired.";
 		default:
 			return "";
 	}

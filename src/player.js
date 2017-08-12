@@ -1,4 +1,5 @@
 var weaponz = require('./weaponz.js');
+var rooms = require('./rooms.js');
 
 function Player(wep) {
 	this.level = 1;
@@ -11,7 +12,7 @@ function Player(wep) {
 	this.roomsEntered = 1;
 	this.eWeapon = wep;
 	function levelUpPlayer() {
-		
+
 	}
 }
 
@@ -39,3 +40,5 @@ exports.calcDifficulty = function (x, y, n) {
 // Test
 var pl = exports.createPlayer();
 console.log(JSON.stringify(pl));
+
+// console.log(rooms.describeRoom(rooms.generateRoom(0,0)));
