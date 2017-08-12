@@ -5,12 +5,15 @@
  * 	JSON.stringify(room);
  * 	JSON.parse(roomjson);
  */
-
-function Room (overview, minorFeature, minorFeature2, sensory) {
+ 
+function Room (overview, minorFeature, minorFeature2, sensory, roomX, roomY) {
 	this.overview = overview;
 	this.minorFeature = minorFeature;
 	this.minorFeature2 = minorFeature2;
 	this.sensory = sensory;
+	this.roomX = roomx;
+	this.roomY = roomY;
+	this.dir = "NSEW";
 }
 
 var roomData = {
