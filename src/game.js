@@ -15,6 +15,27 @@ exports.enterRoom = function(x, y) {
 }
 
 exports.beginGame = function(apiid) {
+// <<<<<<< HEAD
+// 	// Create the player
+// 	var plyr = player.createPlayer();
+// 	// Create the map
+// 	var map = [];
+// 	// Create first room
+// 	map.push(rooms.generateRoom(0,0));
+// 	plyr.currRoom = map[0];
+// 	var enemies = [];
+//
+// 	var db = new sqlite3.Database('databeets_of_politeness.db');
+// 		db.serialize(function() {
+//
+// 		  db.run("CREATE TABLE if not exists user_info (key TEXT, map TEXT, player TEXT, enemies TEXT)");
+// 		  var stmt = db.prepare("INSERT INTO user_info VALUES (?,?,?,?)");
+// 		      stmt.run(apiid,JSON.stringify(map),JSON.stringify(plyr),JSON.stringify(enemies));
+// 		  stmt.finalize();
+// 		});
+//
+// 		db.close();
+// =======
         // Create the player
         var plyr = player.createPlayer();
         // Create the map
@@ -32,6 +53,7 @@ exports.beginGame = function(apiid) {
         stmt.finalize();
         });
         db.close();
+// >>>>>>> 36a34877c8d7e8512d6b8f0e29c926cff73a6e4c
 }
 
 
@@ -49,32 +71,47 @@ exports.movePlayer = function(x, y) {
 // API Calls should call one of these functions which will just
 
 exports.apiRoom = function(apiId,callback) {
+// rec api key
+//get all for that key
+// get room
+// reutrn room desc, json of player
 
-}
+  var db = new sqlite3.Database('mydb.db');
+  console.log('test');
 
-exports.apiHelp = function() {
+  db.serialize(function() {
+     var stmt = db.prepare("SELECT key, map, player, enemies FROM user_info where key = ?", function(err, row) {
+           callback(row.key + ':' + row.map + ':' + row.player + ':' + row.enemies);
+           db.close();
+     });
+     stmt.run(key);
+  });
 
 }
 exports.apiAttack = function(apiId,enemyId,callback) {
+}
+
+exports.apiHelp = function(userID, callback) {
 
 }
 
-exports.apiEquip = function(apiId,itemId,callback) {
-
+exports.apiEquip = function(userID, itemId,callback) {
 }
+
 
 exports.apiGo = function(apiId,direction,callback) {
 
 }
 
 exports.apiKillMe = function(apiId,callback) {
+
 }
+
 
 exports.apiEchoDatabase = function(callback) {
         var db = new sqlite3.Database('mydb.db');
         console.log('test');
         db.serialize(function() {
-          var output = ""; 
 	  db.each("SELECT key, map, player, enemies FROM user_info ASC LIMIT 1", function(err, row) {
                  callback(row.key + ':' + row.map + ':' + row.player + ':' + row.enemies);
            });

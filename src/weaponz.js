@@ -4,26 +4,49 @@
 
 var weaponData = {
   "weapons" : [
-    {"class": "sword", "name": "knife", "dmg": "1d3", "acc": 65},
-    {"class": "sword", "name": "dagger", "dmg": "1d4", "acc": 75},
-    {"class": "sword", "name": "rapier", "dmg": "1d6", "acc": 95},
-    {"class": "sword", "name": "cutlass", "dmg": "1d6", "acc": 80},
-    {"class": "sword", "name": "longsword", "dmg": "1d8+1", "acc": 85},
-    {"class": "sword", "name": "greatsword", "dmg": "1d12+1", "acc": 80},
-
-    {"class": "axe", "name": "hatchet", "dmg": "1d4", "acc": 65},
-    {"class": "axe", "name": "sickle", "dmg": "1d4+1", "acc": 75},
-    {"class": "axe", "name": "war axe", "dmg": "1d8+2", "acc": 80},
-    {"class": "axe", "name": "great axe", "dmg": "1d12+2", "acc": 70},
-
-    {"class": "club", "name": "wooden club", "dmg": "1d3", "acc": 50},
-    {"class": "club", "name": "wooden spoon", "dmg": "1d1", "acc": 20},
-    {"class": "club", "name": "beet", "dmg": "1d2", "acc": 25},
-
-    {"class": "bow", "name": "longbow", "dmg": "1d8", "acc": 90},
-    {"class": "bow", "name": "shortbow", "dmg": "1d4+1", "acc": 95},
-    {"class": "bow", "name": "war bow", "dmg": "1d8+2", "acc": 80},
-    {"class": "bow", "name": "crossbow", "dmg": "1d6+2", "acc": 90}
+    
+	// Bad blades
+	{"class": "sword", "name": "knife", "dmg": "1d6", "acc": 65},
+    {"class": "sword", "name": "dagger", "dmg": "1d6", "acc": 70},
+	// Good blades
+    {"class": "sword", "name": "rapier", "dmg": "2d6", "acc": 90},
+    {"class": "sword", "name": "cutlass", "dmg": "1d10+1", "acc": 80},
+    {"class": "sword", "name": "longsword", "dmg": "1d10", "acc": 85},
+    {"class": "sword", "name": "greatsword", "dmg": "2d8+1", "acc": 65},
+	// Bad axes
+    {"class": "axe", "name": "hatchet", "dmg": "1d4+1", "acc": 65},
+	// Good axes
+    {"class": "axe", "name": "sickle", "dmg": "1d8+1", "acc": 75},
+    {"class": "axe", "name": "war axe", "dmg": "1d10+2", "acc": 70},
+    // Bad clubs
+    {"class": "club", "name": "wooden club", "dmg": "1d4", "acc": 55},
+    {"class": "club", "name": "wooden spoon", "dmg": "1d3", "acc": 50},
+    // There are no good clubs 
+	// Bad misc:
+    {"class": "misc", "name": "ladle", "dmg": "1d3", "acc": 60},
+    // Staves
+    {"class": "staff", "name": "quarterstaff", "dmg": "2d4+1", "acc": 70},
+    {"class": "staff", "name": "battle staff", "dmg": "2d4+3", "acc": 70},
+	// Bows
+    {"class": "bow", "name": "longbow", "dmg": "3d3+2", "acc": 95},
+    {"class": "bow", "name": "shortbow", "dmg": "3d3+1", "acc": 90},
+    {"class": "bow", "name": "sling", "dmg": "2d3+1", "acc": 80}
+  ],
+  "rareWeapons" : [
+	// Joke rares
+	{"class": "club", "name": "beet", "dmg": "1d3", "acc": 45},
+	{"class": "misc", "name": "prosthetic leg", "dmg": "1d4", "acc": 43},
+    {"class": "misc", "name": "enchanted trombone", "dmg": "1d6", "acc": 60},
+	// Actually decent rares
+	{"class": "staff", "name": "wizard's staff", "dmg": "2d4+4", "acc": 70},
+	{"class": "axe", "name": "great axe", "dmg": "1d20", "acc": 60},
+	{"class": "bow", "name": "war bow", "dmg": "3d3+4", "acc": 90},
+    {"class": "bow", "name": "crossbow", "dmg": "3d4", "acc": 85},
+  ],
+  "mythicalWeapons" : [
+	{"class": "misc", "name": "salted leech", "dmg": "3d6+1", "acc": 80},
+	{"class": "sword", "name": "mr. sword", "dmg": "2d8+3", "acc": 85},
+	{"class": "misc", "name": "a glock or something", "dmg": "2d10+2", "acc": 90},
   ],
   "grades" : [
     {"name" : "rusty ", "mod" : 0},
@@ -31,26 +54,28 @@ var weaponData = {
     {"name" : "", "mod" : 2},
     {"name" : "fine ", "mod" : 3},
     {"name" : "superior ", "mod" : 4},
-	{"name" : "exceptional ", "mod" : 5},
-	{"name" : "masterwork ", "mod" : 6},
+  	{"name" : "exceptional ", "mod" : 5},
+  	{"name" : "masterwork ", "mod" : 6},
     {"name" : "legendary ", "mod" : 7},
-	{"name" : "memeful ", "mod" : 8}
+  	{"name" : "memeful ", "mod" : 8}
   ],
   "basicEnchantments" : [
     {"name" : "slashing", "mod": 1, "att": "dmg"},
     {"name" : "crushing", "mod": 1, "att": "dmg"},
-	{"name" : "politeness", "mod": -1, "att": "dmg"},
+  	{"name" : "politeness", "mod": -1, "att": "dmg"},
     {"name" : "sneaking", "mod": 10, "att": "acc"},
     {"name" : "mystery", "mod": 5, "att": "acc"},
+	{"name" : "glowyness", "mod": 4, "att": "acc"},
   ],
   "fancyEnchantments" : [
     {"name" : "conundrums", "mod": 1, "att": "dmg"},
     {"name" : "clumsiness", "mod": -15, "att": "acc"},
     {"name" : "precision", "mod": 15, "att": "acc"},
-	{"name" : "sharpness", "mod": 2, "att": "dmg"},
-	{"name" : "rending", "mod": 3, "att": "dmg"},
-	{"name" : "uselessness", "mod": -2, "att": "dmg"},
-	{"name" : "salt", "mod": 0, "att": "dmg"},
+  	{"name" : "sharpness", "mod": 2, "att": "dmg"},
+  	{"name" : "rending", "mod": 3, "att": "dmg"},
+  	{"name" : "uselessness", "mod": -2, "att": "dmg"},
+  	{"name" : "tooting", "mod": -2, "att": "acc"},
+  	{"name" : "salt", "mod": 0, "att": "dmg"},
   ],
 }
 
@@ -65,7 +90,16 @@ function Weapon(wpnName, dmgDiceSides, dmgDiceNum, dmgMod, acc, isSalty) {
 
 exports.generateWeapon = function (difficulty) {
 	var g;
-	var w = weaponData.weapons[Math.floor(Math.random()*weaponData.weapons.length)];
+	var w;
+	if (Math.random()*100 < ((8+(difficulty*3)))) {
+		if (Math.floor(Math.random()*15) == 0) {
+			w = weaponData.rareWeapons[Math.floor(Math.random()*weaponData.rareWeapons.length)];
+		} else {
+			w = weaponData.mythicalWeapons[Math.floor(Math.random()*weaponData.mythicalWeapons.length)];
+		}
+	} else {
+		w = weaponData.weapons[Math.floor(Math.random()*weaponData.weapons.length)];
+	}
 	var e;
 	switch (difficulty) {
 		case 0:
@@ -77,16 +111,89 @@ exports.generateWeapon = function (difficulty) {
 			g = weaponData.grades[Math.floor(Math.random() * 2)]; // 50/50 Rusty or Old
 			e = weaponData.basicEnchantments[Math.floor(Math.random()*weaponData.basicEnchantments.length)];
 			break;
+		case 2:
+			g = weaponData.grades[Math.floor(Math.random() * 3)]; // Rusty, old or normal
+			if (Math.random() < 0.90) { // 10% chance
+				e = weaponData.basicEnchantments[Math.floor(Math.random()*weaponData.basicEnchantments.length)];
+			} else {
+				e = weaponData.fancyEnchantments[Math.floor(Math.random()*weaponData.fancyEnchantments.length)];
+			}
+			break;
+		case 3:
+			g = weaponData.grades[Math.floor(Math.random() * 5)]; // Rusty - Superior
+			if (Math.random() < 0.85) { // 15% chance
+				e = weaponData.basicEnchantments[Math.floor(Math.random()*weaponData.basicEnchantments.length)];
+			} else {
+				e = weaponData.fancyEnchantments[Math.floor(Math.random()*weaponData.fancyEnchantments.length)];
+			}
+			break;
+		case 4:
+			g = weaponData.grades[Math.floor(Math.random() * 5)]; // Rusty - Superior
+			if (Math.random() < 0.75) { // 25% chance
+				e = weaponData.basicEnchantments[Math.floor(Math.random()*weaponData.basicEnchantments.length)];
+			} else {
+				e = weaponData.fancyEnchantments[Math.floor(Math.random()*weaponData.fancyEnchantments.length)];
+			}
+			break;
+		case 5:
+			g = weaponData.grades[Math.floor(Math.random() * 4)+1]; // old - superior
+			if (Math.random() < 0.72) { // 28% chance
+				e = weaponData.basicEnchantments[Math.floor(Math.random()*weaponData.basicEnchantments.length)];
+			} else {
+				e = weaponData.fancyEnchantments[Math.floor(Math.random()*weaponData.fancyEnchantments.length)];
+			}
+			break;
+		case 6:
+			g = weaponData.grades[Math.floor(Math.random() * 4)+2]; // normal - exceptional
+			if (Math.random() < 0.68) { // 32% chance
+				e = weaponData.basicEnchantments[Math.floor(Math.random()*weaponData.basicEnchantments.length)];
+			} else {
+				e = weaponData.fancyEnchantments[Math.floor(Math.random()*weaponData.fancyEnchantments.length)];
+			}
+			break;
+		case 7:
+			g = weaponData.grades[Math.floor(Math.random() * 5)+2]; // Normal - masterwork
+			if (Math.random() < 0.64) { // 36% chance
+				e = weaponData.basicEnchantments[Math.floor(Math.random()*weaponData.basicEnchantments.length)];
+			} else {
+				e = weaponData.fancyEnchantments[Math.floor(Math.random()*weaponData.fancyEnchantments.length)];
+			}
+			break;
+		case 8:
+			g = weaponData.grades[Math.floor(Math.random() * 6)+2]; // Normal - Legendary
+			if (Math.random() < 0.60) { // 40% chance
+				e = weaponData.basicEnchantments[Math.floor(Math.random()*weaponData.basicEnchantments.length)];
+			} else {
+				e = weaponData.fancyEnchantments[Math.floor(Math.random()*weaponData.fancyEnchantments.length)];
+			}
+			break;
+		case 9:
+			g = weaponData.grades[Math.floor(Math.random() * 5)+3]; // Fine - Legendary
+			if (Math.random() < 0.55) { // 45% chance
+				e = weaponData.basicEnchantments[Math.floor(Math.random()*weaponData.basicEnchantments.length)];
+			} else {
+				e = weaponData.fancyEnchantments[Math.floor(Math.random()*weaponData.fancyEnchantments.length)];
+			}
+			break;
 		case 10:
+			g = weaponData.grades[Math.floor(Math.random() * 5)+4]; // Fine - Memeful
+			if (Math.random() < 0.50) { // 50% chance
+				e = weaponData.basicEnchantments[Math.floor(Math.random()*weaponData.basicEnchantments.length)];
+			} else {
+				e = weaponData.fancyEnchantments[Math.floor(Math.random()*weaponData.fancyEnchantments.length)];
+			}
 			break;
 	}
-	
+
 	var salt = false;
 	// Is salty?
 	if (e.name == "salt") {
 		salt = true;
 	}
-	
+	if (w.name == "salted leech") {
+		salt = true;
+	}
+
 	var wname = g.name + w.name + " of " + e.name;
 	// Calculate damage stats
 	var tempd = w.dmg;

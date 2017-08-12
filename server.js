@@ -31,7 +31,8 @@ app.get('/', (req, res) => {
 
 app.get('/:tagId', function(req, res) {
         ///access the main game using ip/apikey?input=value e.g http://13.59.173.76/577469cf19400000/test/a
-        //output = game.apiHelp(function(vara){
+	//what it should be doing
+       //output = game.apiHelp(function(vara){
         //    layout(vara, res, json);
         //});
 	console.log(req.params.tagId + 'a');
@@ -51,7 +52,7 @@ app.get('/:tagId/:tag1/:tag2', function(req, res) {
 	console.log(req.params.tag2 + 'b');
         switch(req.params.tag1){
             case 'attack':
-                output = game.apiAttack(req.params.tagId,req.params.tag2,function(vara){
+            output = game.apiAttack(req.params.tagId,req.params.tag2,function(vara){
             layout(vara, res, json);
         });
                 break;
@@ -67,7 +68,6 @@ app.get('/:tagId/:tag1/:tag2', function(req, res) {
         });
                 break;
         }
-        layout(output, res, req.query.json);  
 });
 
 function layout (output, res, json){
@@ -96,7 +96,6 @@ app.get('/:tagId/:tag1', function(req, res) {
         });
                 break;
         }
-        layout(output, res, req.query.json);  
 });
 
 app.listen(PORT, HOST);

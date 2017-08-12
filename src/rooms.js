@@ -18,7 +18,7 @@ function Room (overview, minorFeature, minorFeature2, sensory, roomX, roomY) {
 
 var roomData = {
 	"overview" : [
-		"wide", "armory", "torture", "marble", "dark", "white", "metal", "graveyard", "garden"
+		"wide", "armory", "torture", "marble", "dark", "white", "metal", "graveyard", "garden", "hall", "circle", "library", "tomb", "foyer", "qut"
 	],
 	"minorFeature" : [
 		"glow", "drip", "slime", "rock", "needles", "fruit", "music", "blood", "rats"
@@ -59,6 +59,18 @@ function describeOverview(o) {
 			return	"Although the room is very dark, you can make out the shape of gravestones in rows throughout the room. You are in an indoor cemetary.";
 		case "garden":
 			return	"The room is filled with plantlife. You are in a garden, but you do not recognise the plants in the room.";
+		case "hall":
+			return	"You are in a hallway, It is long and you can barely make out the exit. This corridor has seen better days";
+		case "circle":
+			return	"The room is a grandacious circular auditorium. It looks like it would have been truly marvelous in its prime.";
+		case "library":
+			return	"The room's walls are lined with books and scrolls, stacked neatly into shelves. This must be some kind of library or repository.";
+		case "foyer":
+			return	"This room looks like a foyer to a large house, however there are no windows. Where the windows should be has been boarded up with old wooden panels.";
+		case "tomb":
+			return	"This room seems to resemble a tomb. There is a large stone sarcophagus in the middle, but it is sealed tight.";
+		case "qut":
+			return	"This room seems familiar. It is Z-block level 4.";
 		default:
 			return "";
 	}
@@ -80,15 +92,15 @@ function describeMinorFeature(f) {
 		case "rock":
 			return " The walls of the room appear to be made of a rough stone, of a type you cannot identify.";
 		case "rats":
-			return "Tiny rats scurry away from you.";
+			return " Tiny rats scurry away from you.";
 		case "blood":
-			return "There is a faint trail of blood accross the floor."
+			return " There is a faint trail of blood accross the floor."
 		case "needles":
-			return "The room is covered in tiny needles, not big enough to hurt you, but unnerving nevertheless."
+			return " The room is covered in tiny needles, not big enough to hurt you, but unnerving nevertheless."
 		case "fruit":
-			return "The floor is covered in rotten fruit"
+			return " The floor is covered in rotten fruit."
 		case "music":
-			return "You can hear a faint music coming from somewhere. The melody reminds you of your childhood, or breakfast."
+			return " You can hear faint music coming from somewhere. The melody reminds you of your childhood, or breakfast."
 		default:
 			return "";
 	}
@@ -103,11 +115,11 @@ function describeSensory(s) {
 		case "water":
 			return " There is a sound of rushing water far above you.";
 		case "shriek":
-			return " You hear an incredibly high pitched shrieking noise, but can't quite locate where it came from";
+			return " You hear an incredibly high pitched shrieking noise, but can't quite locate where it came from.";
 		case "hot":
-			return " The room is uncomfortably hot, and you start to sweat";
+			return " The room is uncomfortably hot, and you start to sweat.";
 		case "echo":
-			return " The room seems to echo more than a room of this size should. You feel uneasy";
+			return " The room seems to echo more than a room of this size should. You feel uneasy.";
 		case "eerie":
 			return " The room gives you a an eerie sense of impending doom. You cannot be certain why, but you don't want to stay in this room longer than you must.";
 		case "ominous":
@@ -115,7 +127,7 @@ function describeSensory(s) {
 		case "hunger":
 			return " This room makes you hungry.";
 		case "sleep":
-			return " This makes you tired.";
+			return " This room makes you tired.";
 		default:
 			return "";
 	}
