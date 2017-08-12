@@ -28,7 +28,6 @@ exports.beginGame = function(apiid) {
         db.run("CREATE TABLE if not exists user_info (key TEXT, map TEXT, player TEXT, enemies TEXT)");
          var stmt = db.prepare("INSERT INTO user_info VALUES (?,?,?,?)");
                       stmt.run(apiid,JSON.stringify(map),JSON.stringify(plyr),JSON.stringify(enemies));
-        console.log('test');
         console.log(apiid + ':' + apiid,JSON.stringify(map) + JSON.stringify(plyr) + JSON.stringify(enemies));
         stmt.finalize();
         });
@@ -49,26 +48,26 @@ exports.movePlayer = function(x, y) {
 // API Call Functions:
 // API Calls should call one of these functions which will just
 
-exports.apiRoom = function() {
+exports.apiRoom = function(apiId,callback) {
 
 }
 
 exports.apiHelp = function() {
 
 }
-exports.apiAttack = function(enemyId) {
+exports.apiAttack = function(apiId,enemyId,callback) {
 
 }
 
-exports.apiEquip = function(itemId) {
+exports.apiEquip = function(apiId,itemId,callback) {
 
 }
 
-exports.apiGo = function(direction) {
+exports.apiGo = function(apiId,direction,callback) {
 
 }
 
-exports.apiKillMe = function() {
+exports.apiKillMe = function(apiId,callback) {
 }
 
 exports.apiEchoDatabase = function(callback) {

@@ -31,7 +31,9 @@ app.get('/', (req, res) => {
 
 app.get('/:tagId', function(req, res) {
         ///access the main game using ip/apikey?input=value e.g http://13.59.173.76/577469cf19400000/test/a
-        output = game.apiHelp(req.params.tagId);
+        //output = game.apiHelp(function(vara){
+        //    layout(vara, res, json);
+        //});
         var json = req.query.json;
         //what a callback looks like
         var output = game.apiEchoDatabase(function(vara){
@@ -44,14 +46,20 @@ app.get('/:tagId/:tag1/:tag2', function(req, res) {
         var output = null;
         switch(req.params.tag1){
             case 'attack':
-                output = game.apiAttack(req.params.tagId,req.params.tag2);
+                output = game.apiAttack(req.params.tagId,req.params.tag2,function(vara){
+            layout(vara, res, json);
+        });
                 break;
             case 'equip':
-                output = game.apiEquip(req.params.tagId,req.params.tag2);
+                output = game.apiEquip(req.params.tagId,req.params.tag2,function(vara){
+            layout(vara, res, json);
+        });
                 break;
             case 'move':
             case 'go':
-                output = game.apiGo(req.params.tagId,req.params.tag2);
+                output = game.apiGo(req.params.tagId,req.params.tag2,function(vara){
+            layout(vara, res, json);
+        });
                 break;
         }
         layout(output, res, req.query.json);  
@@ -72,10 +80,14 @@ app.get('/:tagId/:tag1', function(req, res) {
         var output = null;
         switch(req.params.tag1){
             case 'killme':
-                output = game.apiKillMe(req.params.tagId);
+                output = game.apiKillMe(req.params.tagId,function(vara){
+            layout(vara, res, json);
+        });
                 break;
             case 'help':
-                output = game.apiHelp(req.params.tagId);
+                output = game.apiHelp(function(vara){
+            layout(vara, res, json);
+        });
                 break;
         }
         layout(output, res, req.query.json);  
