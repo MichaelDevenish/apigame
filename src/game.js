@@ -71,49 +71,41 @@ exports.movePlayer = function(x, y) {
 // API Call Functions:
 // API Calls should call one of these functions which will just
 
-<<<<<<< HEAD
-/*
- * Displays current room data to the player. 
- */
-exports.apiRoom = function(apiid) {
-	
-=======
-exports.apiRoom = function() {
+exports.apiRoom = function(key, callback) {
+// rec api key
+//get all for that key
+// get room
+// reutrn room desc, json of player
 
->>>>>>> 36a34877c8d7e8512d6b8f0e29c926cff73a6e4c
-}
+  var db = new sqlite3.Database('mydb.db');
+  console.log('test');
 
-exports.apiHelp = function() {
-
-}
-exports.apiAttack = function(enemyId) {
-
-}
-
-exports.apiEquip = function(itemId) {
+  db.serialize(function() {
+     var stmt = db.prepare("SELECT key, map, player, enemies FROM user_info where key = ?", function(err, row) {
+           callback(row.key + ':' + row.map + ':' + row.player + ':' + row.enemies);
+           db.close();
+     });
+     stmt.run(key);
+  });
 
 }
 
-exports.apiGo = function(direction) {
+exports.apiHelp = function(callback) {
+
+}
+exports.apiAttack = function(enemyId,callback) {
 
 }
 
-<<<<<<< HEAD
-exports.apiEchoDatabase = function() {
-	var dat = "";
-	var db = new sqlite3.Database('databeets_of_politeness.db');
-		db.serialize(function() {
-		   db.each("SELECT rowid AS id, key, map, player, enemies FROM user_info", function(err, row) {
-				dat += (row.id + ": " + row.key + ':' + row.map + ':' + row.player + ':' + row.enemies);
-				dat += "\n";
-		  });
-		});
+exports.apiEquip = function(itemId,callback) {
+callback(["equipped", {}])
+}
 
-	db.close();
-	return dat;
-=======
-exports.apiKillMe = function() {
->>>>>>> 36a34877c8d7e8512d6b8f0e29c926cff73a6e4c
+exports.apiGo = function(direction,callback) {
+
+}
+
+exports.apiKillMe = function(callback) {
 }
 
 exports.apiEchoDatabase = function(callback) {

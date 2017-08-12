@@ -24,14 +24,22 @@ body {
 	z-index: 2;
 }
 
+.Logo {
+	position: absolute;
+	height:60px;
+	left: 50%;
+	bottom: 5px;
+	transform: translate(-50%)
+}
+
 .text {
 	position: absolute;
-	top: 15%;
-	left: 37%;
-	transform: translate(-15%,-35%);
+	top: 30%;
+	left: 39%;
+	transform: translate(-25%,-30%);
 	z-index: 3;
 	color: #00fe00;
-	width: 600px;
+	width: 500px;
 }
 
 p {
@@ -41,7 +49,6 @@ p {
 	font-variant: normal;
 	font-weight: 400;
 	line-height: 20px;
-	
 }
 
 
@@ -54,13 +61,13 @@ p {
 
 @media (max-width: 1100px) {
 	.text {
-		left: 32%;
+		left: 35%;
 	}
 }
 
 @media (max-width: 780px) {
 	.text {
-		left: 25%;
+		left: 28%;
 	}
 }
 
