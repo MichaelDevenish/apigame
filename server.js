@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
         var contents = fs.readFileSync('src/weaponz.js','utf8');
         //testing id generation
        // res.send('Your unique API key is:' + id + ' Ctest:'+contents );
-       res.render('else',{id: id, contents: JSON.stringify(player.createPlayer())});
+       res.render('other',{id: id, contents: JSON.stringify(player.createPlayer())});
 });
 
 app.get('/:tagId', function(req, res) {
@@ -48,7 +48,7 @@ app.get('/:tagId', function(req, res) {
     
         var json = req.query.json;
         if(json != 'true'){
-            res.render('else',{id: a, contents: json});
+            res.render('other',{id: a, contents: json});
         }else{
                 var obj = new Object();
                 obj.APIkey = a;
@@ -72,7 +72,7 @@ app.get('/:tagId/:tag1/:tag2', function(req, res) {
         var items = [req.params.tag1,req.params.tag2];
         var json = req.query.json;
         if(json != 'true'){
-            res.render('else',{id: a, contents: json});
+            res.render('other',{id: a, contents: json});
         }else{
                 var obj = new Object();
                 obj.APIkey = a;
@@ -88,7 +88,7 @@ app.get('/:tagId/:tag1', function(req, res) {
         var b = [req.params.tag1];
         var json = req.query.json;
         if(json != 'true'){
-            res.render('else',{id: weaponz.generateWeapon(), contents: json});
+            res.render('other',{id: weaponz.generateWeapon(), contents: json});
         }else{
             var obj = new Object();
                 obj.APIkey = a;
