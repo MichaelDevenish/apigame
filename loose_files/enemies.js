@@ -89,6 +89,5 @@ var enemyNames = [
 var enemyParty = generateEnemyParty(1);
 console.log("The enemy party contains:");
 for (var i = 0; i < enemyParty.length; i++) {
-	e = enemyParty[i];
-	console.log(e.enemyName + " the " + e.enemyTitle + ", HP: " + e.currHP + "/" + e.maxHP + ", Hit: " + e.hitChance + ", Dodge: " + e.dodgeChance + ", Defence: " + e.defence + ", Attack Type: " + e.attackType)
+	console.log(JSON.stringify(enemyParty[i]))
 }
