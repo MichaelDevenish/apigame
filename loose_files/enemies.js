@@ -78,7 +78,7 @@ var enemyData = {
 }
 
 var enemyNames = [
-	'James', 'John', 'Rob', 'Mike', 'Will', 'Davo', 'Charlie', 'Joseph', 'Joe', 'Paul', 'Dan', 'Mark', 'Donald', 'Eddy', 'Ron', 'Brian', 'Tony', 'Matt', 'Gazza', 'Timo', 'Steve',
+	'James', 'John', 'Rob', 'Mike', 'Will', 'Davo', 'Charlie', 'Joseph', 'Joe', 'Paul', 'Dan', 'Mark', 'Donald', 'Eddy', 'Ron', 'Brian', 'Tony', 'Matt', 'Gazza', 'Timo', 'Steve'
 	'Eric', 'Ray', 'Andy', 'Pat', 'Juan', 'Jack', 'Frank', 'Scotty',
 	'Mary', 'Linda', 'Barb', 'Liza', 'Jen', 'Maria', 'Susy', 'Lisa', 'Karen', 'Betty', 'Carol', 'Sandra', 'Anna', 'Amy', 'Rebecca', 'Jess', 'Debra', 'Joyce', 'Diane', 'Alice'
 ]
@@ -89,5 +89,11 @@ var enemyNames = [
 var enemyParty = generateEnemyParty(1);
 console.log("The enemy party contains:");
 for (var i = 0; i < enemyParty.length; i++) {
+<<<<<<< HEAD
 	console.log(JSON.stringify(enemyParty[i]))
 }
+=======
+	e = enemyParty[i];
+	console.log(e.enemyName + " the " + e.enemyTitle + ", HP: " + e.currHP + "/" + e.maxHP + ", Hit: " + e.hitChance + ", Dodge: " + e.dodgeChance + ", Defence: " + e.defence + ", Attack Type: " + e.attackType)
+}
+>>>>>>> 6a8af95c1b47c5d0d5d6f8488e441e623e285806

@@ -8,6 +8,9 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.15.4",
+    "biguint-format": "^1.0",
+    "flake-idgen": "^1.0",
+    "fs": "^0.0.2"
   }
 }
