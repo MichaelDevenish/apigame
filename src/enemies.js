@@ -51,6 +51,8 @@ function generateEnemyParty(difficulty) {
 					break;
 			}
 			break;
+		case 2:
+			// Generate some enemies
 		default:
 			// Idk, just return a slime?
 			ep.push(createEnemy("Slime"));
@@ -70,12 +72,17 @@ function shuffleArray(a) {
 
 
 var enemyData = {
-	"goo": {"name": "Puddle of Goo", "maxHPLow": 16, "maxHPHigh": 24, "damageDice": '1d4+2', "hitChance": 90, "dodgeChance": 10, "defence": 2, "attackType": "phys"},
-	"rat": {"name": "Giant Rat", "maxHPLow": 11, "maxHPHigh": 14, "damageDice": '1d4+1', "hitChance": 90, "dodgeChance": 15, "defence": 1, "attackType": "phys"},
-	"ghost": {"name": "Spoopy Ghost", "maxHPLow": 19, "maxHPHigh": 25, "damageDice": '1d4+2', "hitChance": 90, "dodgeChance": 10, "defence": 1, "attackType": "magi"},
-	"knight": {"name": "Lost Knight", "maxHPLow": 26, "maxHPHigh": 30, "damageDice": '2d4+1', "hitChance": 90, "dodgeChance": 10, "defence": 3, "attackType": "phys"},
+	"goo": {"name": "Puddle of Goo", "maxHPLow": 14, "maxHPHigh": 18, "damageDice": '1d4+2', "hitChance": 85, "dodgeChance": 10, "defence": 2, "attackType": "phys"},
+	"rat": {"name": "Giant Rat", "maxHPLow": 7, "maxHPHigh": 11, "damageDice": '1d4+1', "hitChance": 85, "dodgeChance": 15, "defence": 1, "attackType": "phys"},
+	"ghost": {"name": "Spoopy Ghost", "maxHPLow": 15, "maxHPHigh": 21, "damageDice": '1d6', "hitChance": 85, "dodgeChance": 10, "defence": 1, "attackType": "magi"},
+	
+	"knight": {"name": "Lost Knight", "maxHPLow": 23, "maxHPHigh": 28, "damageDice": '1d8+1', "hitChance": 80, "dodgeChance": 10, "defence": 3, "attackType": "phys"},
 	"dog":{"name": "Dog", "maxHPLow": 17, "maxHPHigh": 22 "damageDice": '1d6+1', "hitChance": 95, "dodgeChance": 12, "defence": 2, "attackType": "phys"},
-	"cat":{"name": "Wizarding Cat", "maxHPLow": 17, "maxHPHigh": 22 "damageDice": '1d6+1', "hitChance": 95, "dodgeChance": 12, "defence": 2, "attackType": "phys"}
+	"cat":{"name": "Wizarding Cat", "maxHPLow": 15, "maxHPHigh": 21 "damageDice": '2d4', "hitChance": 90, "dodgeChance": 12, "defence": 2, "attackType": "phys"},
+
+	"squirrel":{"name": "Rabid Squirrel", "maxHPLow": 14, "maxHPHigh": 19 "damageDice": '1d8', "hitChance": 95, "dodgeChance": 14, "defence": 2, "attackType": "phys"}
+	"snake":{"name": "Snek", "maxHPLow": 15, "maxHPHigh": 20 "damageDice": '1d10', "hitChance": 92, "dodgeChance": 20, "defence": 2, "attackType": "phys"}
+	"axemurder":{"name": "Axe Murderer", "maxHPLow": 24, "maxHPHigh": 29 "damageDice": '1d10+2', "hitChance": 80, "dodgeChance": 13, "defence": 2, "attackType": "phys"}
 
 }
 
@@ -91,11 +98,5 @@ var enemyNames = [
 var enemyParty = generateEnemyParty(1);
 console.log("The enemy party contains:");
 for (var i = 0; i < enemyParty.length; i++) {
-<<<<<<< HEAD
-	console.log(JSON.stringify(enemyParty[i]))
+	console.log(JSON.stringify(enemyParty[i]));
 }
-=======
-	e = enemyParty[i];
-	console.log(e.enemyName + " the " + e.enemyTitle + ", HP: " + e.currHP + "/" + e.maxHP + ", Hit: " + e.hitChance + ", Dodge: " + e.dodgeChance + ", Defence: " + e.defence + ", Attack Type: " + e.attackType)
-}
->>>>>>> 6a8af95c1b47c5d0d5d6f8488e441e623e285806

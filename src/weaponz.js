@@ -111,6 +111,9 @@ exports.generateWeapon = function (difficulty) {
 	if (e.name == "salt") {
 		salt = true;
 	}
+	if (w.name == "salted leech") {
+		salt = true;
+	}
 
 	var wname = g.name + w.name + " of " + e.name;
 	// Calculate damage stats
