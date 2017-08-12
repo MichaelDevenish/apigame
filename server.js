@@ -41,6 +41,21 @@ app.get('/', (req, res) => {
        res.render('else',{id: id, contents: JSON.stringify(player.createPlayer())});
 });
 
+app.get('/:tagId', function(req, res) {
+                //access the main game using ip/apikey?input=value e.g http://13.59.173.76/577469cf19400000/test/a
+        
+        var a = req.params.tagId;
+    
+        var json = req.query.json;
+        if(json != 'true'){
+            res.render('else',{id: a, contents: json});
+        }else{
+                var obj = new Object();
+                obj.APIkey = a;
+                res.json(obj);
+        }
+});
+
 app.get('/:tagId/:tag1/:tag2', function(req, res) {
                 //access the main game using ip/apikey?input=value e.g http://13.59.173.76/577469cf19400000/test/a
         var db = new sqlite3.Database('mydb.db');
