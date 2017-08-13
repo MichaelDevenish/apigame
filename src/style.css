@@ -53,12 +53,6 @@ p {
 
 
 
-@media (max-height: 620px) {
-	.text {
-		top: 100px;
-	}
-}
-
 @media (max-width: 1100px) {
 	.text {
 		left: 35%;
